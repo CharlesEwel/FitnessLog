@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Account Registration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model FitnessLog.Models.Entry
+<h2>Create a New Entry</h2>
+@using (Html.BeginForm())
+{
+    <input data-val="true" data-val-required="The UserId field is required." id="UserId" name="UserId" type="hidden" value=@ViewBag.UserId>
+    @Html.LabelFor(model => model.Date)
+    @Html.TextBoxFor(model => model.Date, new { type = "date"})
+    @Html.LabelFor(model => model.Description)
+    @Html.TextBoxFor(model => model.Description)
+    <input type="submit" value="Publish" />
+}
+<p>@Html.ActionLink("Back to Log", "Log", new { id = ViewBag.UserId })</p>

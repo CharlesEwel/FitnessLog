@@ -60,5 +60,17 @@ namespace FitnessLog.Controllers
             var thisUser = db.Users.Include(users => users.Log).FirstOrDefault(users => users.UserId == id);
             return View(thisUser);
         }
+        public IActionResult CreateEntry(int id)
+        {
+            ViewBag.UserId = id;
+            return View();
+        }
+        [HttpPost]
+        public IActionResult CreateEntry(Entry entry)
+        {
+            db.Log.Add(entry);
+            db.SaveChanges();
+            return RedirectToAction("Log", new { id = entry.UserId });
+        }
     }
 }

@@ -13,5 +13,5 @@
 </ul>
 
 
-<p>@Html.ActionLink("New Entry", "CreateEntry")</p>
+<p>@Html.ActionLink("New Entry", "CreateEntry", new { id = Model.UserId })</p>
 <p>@Html.ActionLink("Back to location", "Index")</p>
