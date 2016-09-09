@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Account Registration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model FitnessLog.Models.User
+<h2>Create a New Account</h2>
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.UserName)
+    @Html.TextBoxFor(model => model.UserName)
+    @Html.LabelFor(model => model.Age)
+    @Html.TextBoxFor(model => model.Age, new { type = "number", min = "0", max = "99" })
+    @Html.LabelFor(model => model.Height)
+    @Html.TextBoxFor(model => model.Height, new { type = "number", min = "0", max = "99" })
+    @Html.LabelFor(model => model.Weight)
+    @Html.TextBoxFor(model => model.Weight, new { type = "number", min="0", max="999" })
+    @Html.LabelFor(model => model.Gender)
+    @Html.TextBoxFor(model => model.Gender, new { type = "number", min = "0", max = "3" })
+    <input type="submit" value="Register" />
+}
+<p>@Html.ActionLink("Back to location", "Index")</p>

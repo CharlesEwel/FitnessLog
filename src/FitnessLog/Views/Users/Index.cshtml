@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Fitness Log";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<FitnessLog.Models.User>
+
+<h1>Welcome to my Fitness Log App</h1>
+
+<h2>Users</h2>
+
+@foreach(var user in Model)
+{
+    <li>@Html.DisplayFor(modelUser => user.UserName) | @Html.ActionLink("Edit", "Edit", new { id = user.UserId })| @Html.ActionLink("Delete", "Delete", new { id = user.UserId }) | @Html.ActionLink("Details", "Details", new { id = user.UserId }) | @Html.ActionLink("Log", "Log", new { id = user.UserId })</li>
+}
+<p>@Html.ActionLink("Register A New Account", "Create")</p>
+<a href="/">Back To Home</a>

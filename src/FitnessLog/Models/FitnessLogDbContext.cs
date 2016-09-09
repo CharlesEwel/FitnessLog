@@ -10,14 +10,13 @@ namespace FitnessLog.Models
     {
         public DbSet<User> Users { get; set; }
 
-        public FitnessLogDbContext(DbContextOptions<FitnessLogDbContext> options)
-        : base(options)
-        {
-        }
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        {
+            options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=FitnessLog;integrated security=True");
         }
     }
 }

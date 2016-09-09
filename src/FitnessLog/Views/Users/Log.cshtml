@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Account Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model FitnessLog.Models.User
+<h2>@Html.DisplayFor(model => model.UserName)'s Log</h2>
+
+<ul>
+    @foreach (var entry in Model.Log)
+    {
+        <li>@Html.DisplayFor(model => entry.Date): @Html.DisplayFor(model => entry.Description) </li>
+    }
+</ul>
+
+
+<p>@Html.ActionLink("New Entry", "CreateEntry")</p>
+<p>@Html.ActionLink("Back to location", "Index")</p>
