@@ -8,9 +8,10 @@ using FitnessLog.Models;
 namespace FitnessLog.Migrations
 {
     [DbContext(typeof(FitnessLogDbContext))]
-    partial class FitnessLogDbContextModelSnapshot : ModelSnapshot
+    [Migration("20160911232247_Exercises")]
+    partial class Exercises
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")

@@ -15,7 +15,14 @@
     @Html.LabelFor(model => model.Weight)
     @Html.TextBoxFor(model => model.Weight, new { type = "number", min="0", max="999" })
     @Html.LabelFor(model => model.Gender)
-    @Html.TextBoxFor(model => model.Gender, new { type = "number", min = "0", max = "3" })
+    @Html.Label("Gender", ":  Male")
+    @Html.RadioButton("Gender", 0)
+    @Html.Label("Gender", "Female")
+    @Html.RadioButton("Gender", 1)
+    @Html.Label("Gender", "Non-Binary")
+    @Html.RadioButton("Gender", 2)
+    @Html.Label("Gender", "Prefer Not To Answer")
+    @Html.RadioButton("Gender", 3)
     <input type="submit" value="Register" />
 }
 <p>@Html.ActionLink("Back to location", "Index")</p>

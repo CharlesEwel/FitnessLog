@@ -16,5 +16,7 @@ namespace FitnessLog.Models
         public string Description { get; set; }
         public int UserId { get; set; }
         public virtual User User { get; set; }
+
+        public virtual ICollection<EntryExerciseJoin> EntryExerciseJoins { get; set; }
     }
 }
