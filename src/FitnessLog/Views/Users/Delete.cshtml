@@ -2,7 +2,7 @@
     ViewData["Title"] = "Account Deletion";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model FitnessLog.Models.User
+@model FitnessLog.Models.ApplicationUser
 <h2>Are you sure you want to delete @Html.DisplayFor(model => model.UserName)'s account?</h2>
 @using (Html.BeginForm())
 {

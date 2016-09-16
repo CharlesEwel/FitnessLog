@@ -34,7 +34,7 @@ namespace FitnessLog.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(RegisterViewModel model)
         {
-            var user = new ApplicationUser { UserName = model.Email };
+            var user = new ApplicationUser { UserName = model.Email, Age = model.Age, Height  =model.Height, Weight = model.Weight, Gender = model.Gender };
             IdentityResult result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
@@ -95,6 +95,11 @@ namespace FitnessLog.Controllers
             _db.Users.Remove(thisUser);
             _db.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public IActionResult Details(string id)
+        {
+            var thisUser = _db.Users.FirstOrDefault(users => users.Id == id);
+            return View(thisUser);
         }
         public IActionResult Log(string id)
         {

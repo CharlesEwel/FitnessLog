@@ -1,42 +1,24 @@
-﻿# Pulled-pork-blog
+﻿# Fitness Log
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
-
-## Prerequisites
-
-You will need the following things properly installed on your computer.
-
-* [Git](http://git-scm.com/)
-* [Node.js](http://nodejs.org/) (with NPM)
-* [Bower](http://bower.io/)
-* [Ember CLI](http://ember-cli.com/)
-* [PhantomJS](http://phantomjs.org/)
+This application allows user to create and view fitenss log's, which are records of exercises done by a trainee. Users will be able to
+detail each indivual workout and track their progress. The site will also look at a user's body type, goals and exercises, and suggest similar
+logs that may be of interest.
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* change into the new directory
-* `npm install`
-* `bower install`
+* From Powershell, >git clone <repository-url> this repository
+* Open the solution in Microsoft Visual Studio.
+* From PowerShell, Navigate into the folder containing project.json (src/FitnessLog)
+* Run >dotnet ef database update
 
 ## Running / Development
 
-* `ember server`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-
+* Run from Microsoft Visual Studio
+* Port will be assigned randomly, should pop up on its own.
 ##Specs
 
 Allow Users to create a user profile (height, age, gender, weight, goals)
 Allow Individual User to create a log with entries (date, exercises performed)
 Exercise Class: (Name, Image, Sets, Reps, Weight, Notes)
-
-## Further Reading / Useful Links
-
-* [ember.js](http://emberjs.com/)
-* [ember-cli](http://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
 
 ##Licensce and Copyright

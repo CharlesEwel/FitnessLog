@@ -2,11 +2,11 @@
     ViewData["Title"] = "Account Editing";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model FitnessLog.Models.User
+@model FitnessLog.Models.ApplicationUser
 <h2>Edit Account: @Html.DisplayFor(model=>model.UserName)</h2>
 @using (Html.BeginForm())
 {
-    @Html.HiddenFor(model => model.UserId)
+    @Html.HiddenFor(model => model.Id)
     @Html.LabelFor(model => model.UserName)
     @Html.EditorFor(model => model.UserName)
     @Html.LabelFor(model => model.Age)
@@ -16,7 +16,14 @@
     @Html.LabelFor(model => model.Weight)
     @Html.EditorFor(model => model.Weight, new { type = "number", min = "0", max = "999" })
     @Html.LabelFor(model => model.Gender)
-    @Html.EditorFor(model => model.Gender, new { type = "number", min = "0", max = "3" })
+    @Html.Label("Gender", ":  Male")
+    @Html.RadioButton("Gender", 0)
+    @Html.Label("Gender", "Female")
+    @Html.RadioButton("Gender", 1)
+    @Html.Label("Gender", "Non-Binary")
+    @Html.RadioButton("Gender", 2)
+    @Html.Label("Gender", "Prefer Not To Answer")
+    @Html.RadioButton("Gender", 3)
     <input type="submit" value="Save" />
 }
 <p>@Html.ActionLink("Back to location", "Index")</p>
