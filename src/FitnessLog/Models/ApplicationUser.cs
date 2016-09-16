@@ -4,15 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace FitnessLog.Models
 {
     [Table("Users")]
-    public class User
+    public class ApplicationUser : IdentityUser
     {
-        [Key]
-        public int UserId { get; set; }
-        public string UserName { get; set; }
         public int Age { get; set; }
         public int Height { get; set; }
         public int Gender { get; set; }

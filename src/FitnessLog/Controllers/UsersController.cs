@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using FitnessLog.Models;
+using FitnessLog.ViewModels;
+using Microsoft.AspNetCore.Identity;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -12,55 +14,94 @@ namespace FitnessLog.Controllers
 {
     public class UsersController : Controller
     {
-        private FitnessLogDbContext db = new FitnessLogDbContext();
+        private readonly FitnessLogDbContext _db;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
+        public UsersController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, FitnessLogDbContext db)
+        {
+            _userManager = userManager;
+            _signInManager = signInManager;
+            _db = db;
+        }
         public IActionResult Index()
         {
-            return View(db.Users.ToList());
+            return View(_db.Users.ToList());
         }
         public IActionResult Create()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult Create(User user)
+        public async Task<IActionResult> Create(RegisterViewModel model)
         {
-            db.Users.Add(user);
-            db.SaveChanges();
+            var user = new ApplicationUser { UserName = model.Email };
+            IdentityResult result = await _userManager.CreateAsync(user, model.Password);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View();
+            }
+        }
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginViewModel model)
+        {
+            Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, isPersistent: true, lockoutOnFailure: false);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View();
+            }
+        }
+        [HttpPost]
+        public async Task<IActionResult> LogOff()
+        {
+            await _signInManager.SignOutAsync();
             return RedirectToAction("Index");
         }
-        public IActionResult Edit(int id)
-        {
-            var thisUser = db.Users.FirstOrDefault(users => users.UserId == id);
+        public IActionResult Edit(string id)
+        { 
+            var thisUser = _db.Users.FirstOrDefault(users => users.Id == id);
             return View(thisUser);
         }
 
         [HttpPost]
-        public IActionResult Edit(User user)
+        public IActionResult Edit(ApplicationUser user)
         {
-            db.Entry(user).State = EntityState.Modified;
-            db.SaveChanges();
+            _db.Entry(user).State = EntityState.Modified;
+            _db.SaveChanges();
             return RedirectToAction("Index");
         }
-        public IActionResult Delete(int id)
+        public IActionResult Delete(string id)
         {
-            var thisUser = db.Users.FirstOrDefault(users => users.UserId == id);
+            var thisUser = _db.Users.FirstOrDefault(users => users.Id == id);
             return View(thisUser);
         }
 
         [HttpPost, ActionName("Delete")]
-        public IActionResult DeleteConfirmed(int id)
+        public IActionResult DeleteConfirmed(string id)
         {
-            var thisUser = db.Users.FirstOrDefault(users => users.UserId == id);
-            db.Users.Remove(thisUser);
-            db.SaveChanges();
+            var thisUser = _db.Users.FirstOrDefault(users => users.Id == id);
+            _db.Users.Remove(thisUser);
+            _db.SaveChanges();
             return RedirectToAction("Index");
         }
-        public IActionResult Log(int id)
+        public IActionResult Log(string id)
         {
-            var thisUser = db.Users.Include(users => users.Log).FirstOrDefault(users => users.UserId == id);
+            var thisUser = _db.Users.Include(users => users.Log).FirstOrDefault(users => users.Id == id);
             return View(thisUser);
         }
-        public IActionResult CreateEntry(int id)
+        public IActionResult CreateEntry(string id)
         {
             ViewBag.UserId = id;
             return View();
@@ -68,9 +109,9 @@ namespace FitnessLog.Controllers
         [HttpPost]
         public IActionResult CreateEntry(Entry entry)
         {
-            db.Log.Add(entry);
-            db.SaveChanges();
-            return RedirectToAction("Log", new { id = entry.UserId });
+            _db.Log.Add(entry);
+            _db.SaveChanges();
+            return RedirectToAction("Log", new { id = 0 });
         }
     }
 }

@@ -2,12 +2,16 @@
     ViewData["Title"] = "Account Registration";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model FitnessLog.Models.User
+@model FitnessLog.ViewModels.RegisterViewModel
 <h2>Create a New Account</h2>
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create", "Users", FormMethod.Post))
 {
-    @Html.LabelFor(model => model.UserName)
-    @Html.TextBoxFor(model => model.UserName)
+    @Html.LabelFor(model => model.Email)
+    @Html.TextBoxFor(model => model.Email)
+    @Html.LabelFor(m => m.Password)
+    @Html.PasswordFor(m => m.Password)
+    @Html.LabelFor(m => m.ConfirmPassword)
+    @Html.PasswordFor(m => m.ConfirmPassword)
     @Html.LabelFor(model => model.Age)
     @Html.TextBoxFor(model => model.Age, new { type = "number", min = "0", max = "99" })
     @Html.LabelFor(model => model.Height)

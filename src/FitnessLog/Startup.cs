@@ -1,10 +1,11 @@
-﻿using System;
+﻿  using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -35,6 +36,9 @@ namespace FitnessLog
             services.AddEntityFramework()
                 .AddDbContext<FitnessLogDbContext>(options =>
                     options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<FitnessLogDbContext>()
+                .AddDefaultTokenProviders();
         }
 
 
@@ -49,6 +53,7 @@ namespace FitnessLog
             }
 
             //2
+            app.UseIdentity();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace FitnessLog.Models
 {
-    public class FitnessLogDbContext: DbContext
+    public class FitnessLogDbContext: IdentityDbContext<ApplicationUser>
     {
-        public DbSet<User> Users { get; set; }
         public DbSet<Entry> Log { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
