@@ -12,7 +12,7 @@ namespace FitnessLog.Tests
         [Fact]
         public void GetAgeWeightandHeightTest()
         {
-            var newUser = new ApplicationUser();
+            var newUser = new ApplicationUser { Age = 26, Weight = 188, Height = 74 };
 
             var age = newUser.Age;
             var weight = newUser.Weight;
