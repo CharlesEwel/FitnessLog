@@ -4,6 +4,20 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.log-in').submit(function (event) {
+                event.preventDefault();
+                $.ajax({
+                    url: '@Url.Action("LogIn", "Users")',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: $(this).serialize()
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     @if (User.Identity.IsAuthenticated)
@@ -17,7 +31,13 @@
     else
     {
         <p>@Html.ActionLink("Register", "Create", "Users")</p>
-        <p>@Html.ActionLink("Log in", "Login", "Users")</p>
+        <form action="LogIn" class="log-in">
+            <label for="username">Username: </label>
+            <input type="text" name="username" />
+            <label for="password">Password: </label>
+            <input type="password" name="password" />
+            <button type="submit" class="btn btn-default">Log In</button>
+        </form>
     }
     <div>
         @RenderBody()
