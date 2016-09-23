@@ -210,11 +210,13 @@ C:\Users\epicodus\Desktop\FitnessLog\src\FitnessLog\Migrations\20160911232247_Ex
 C:\Users\epicodus\Desktop\FitnessLog\src\FitnessLog\Migrations\20160911232247_Exercises.Designer.cs
 C:\Users\epicodus\Desktop\FitnessLog\src\FitnessLog\Migrations\20160916162721_IntegrateIdentity.cs
 C:\Users\epicodus\Desktop\FitnessLog\src\FitnessLog\Migrations\20160916162721_IntegrateIdentity.Designer.cs
+C:\Users\epicodus\Desktop\FitnessLog\src\FitnessLog\Migrations\20160923164326_FixLog.cs
+C:\Users\epicodus\Desktop\FitnessLog\src\FitnessLog\Migrations\20160923164326_FixLog.Designer.cs
 C:\Users\epicodus\Desktop\FitnessLog\src\FitnessLog\Migrations\FitnessLogDbContextModelSnapshot.cs
 C:\Users\epicodus\Desktop\FitnessLog\src\FitnessLog\Models\ApplicationUser.cs
 C:\Users\epicodus\Desktop\FitnessLog\src\FitnessLog\Models\Entry.cs
 C:\Users\epicodus\Desktop\FitnessLog\src\FitnessLog\Models\EntryExerciseJoin.cs
 C:\Users\epicodus\Desktop\FitnessLog\src\FitnessLog\Models\Exercise.cs
 C:\Users\epicodus\Desktop\FitnessLog\src\FitnessLog\Models\FitnessLogDbContext.cs
-C:\Users\epicodus\Desktop\FitnessLog\src\FitnessLog\ViewModels\LoginViewModel.cs
-C:\Users\epicodus\Desktop\FitnessLog\src\FitnessLog\ViewModels\RegisterViewModel.cs
+C:\Users\epicodus\Desktop\FitnessLog\src\FitnessLog\Models\ViewModels\LoginViewModel.cs
+C:\Users\epicodus\Desktop\FitnessLog\src\FitnessLog\Models\ViewModels\RegisterViewModel.cs

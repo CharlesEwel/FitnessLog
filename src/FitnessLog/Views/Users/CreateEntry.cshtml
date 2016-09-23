@@ -6,7 +6,7 @@
 <h2>Create a New Entry</h2>
 @using (Html.BeginForm())
 {
-    <input data-val="true" data-val-required="The UserId field is required." id="UserId" name="UserId" type="hidden" value=@ViewBag.UserId>
+    <input id="UserId" name="UserId" type="hidden" value=@ViewBag.UserId>
     @Html.LabelFor(model => model.Date)
     @Html.TextBoxFor(model => model.Date, new { type = "date"})
     @Html.LabelFor(model => model.Description)

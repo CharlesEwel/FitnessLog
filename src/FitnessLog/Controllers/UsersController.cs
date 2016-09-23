@@ -103,7 +103,7 @@ namespace FitnessLog.Controllers
         }
         public IActionResult Log(string id)
         {
-            var thisUser = _db.Users.Include(users => users.Log).FirstOrDefault(users => users.Id == id);
+            var thisUser = _db.Users.Include(user => user.Log).FirstOrDefault(users => users.Id == id);
             return View(thisUser);
         }
         public IActionResult CreateEntry(string id)
@@ -116,7 +116,7 @@ namespace FitnessLog.Controllers
         {
             _db.Log.Add(entry);
             _db.SaveChanges();
-            return RedirectToAction("Log", new { id = 0 });
+            return RedirectToAction("Log", new { id = entry.UserId });
         }
     }
 }
