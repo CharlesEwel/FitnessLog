@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using FitnessLog.Models;
 using FitnessLog.ViewModels;
 using Microsoft.AspNetCore.Identity;
+using FitnessLog.Models.Repositories;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -14,18 +13,26 @@ namespace FitnessLog.Controllers
 {
     public class UsersController : Controller
     {
-        private readonly FitnessLogDbContext _db;
+        private IEntryRepository entryRepo;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
-        public UsersController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, FitnessLogDbContext db)
+        
+        public UsersController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IEntryRepository thisRepo = null)
         {
             _userManager = userManager;
             _signInManager = signInManager;
-            _db = db;
+            if (thisRepo == null)
+            {
+                this.entryRepo = new EFEntryRepository();
+            }
+            else
+            {
+                this.entryRepo = thisRepo;
+            }
         }
         public IActionResult Index()
         {
-            return View(_db.Users.ToList());
+            return View(entryRepo.Users.ToList());
         }
         public IActionResult Create()
         {
@@ -65,39 +72,37 @@ namespace FitnessLog.Controllers
         }
         public IActionResult Edit(string id)
         { 
-            var thisUser = _db.Users.FirstOrDefault(users => users.Id == id);
+            var thisUser = entryRepo.Users.FirstOrDefault(users => users.Id == id);
             return View(thisUser);
         }
 
         [HttpPost]
         public IActionResult Edit(ApplicationUser user)
         {
-            _db.Entry(user).State = EntityState.Modified;
-            _db.SaveChanges();
+            entryRepo.Edit(user);
             return RedirectToAction("Index");
         }
         public IActionResult Delete(string id)
         {
-            var thisUser = _db.Users.FirstOrDefault(users => users.Id == id);
+            var thisUser = entryRepo.Users.FirstOrDefault(users => users.Id == id);
             return View(thisUser);
         }
 
         [HttpPost, ActionName("Delete")]
         public IActionResult DeleteConfirmed(string id)
         {
-            var thisUser = _db.Users.FirstOrDefault(users => users.Id == id);
-            _db.Users.Remove(thisUser);
-            _db.SaveChanges();
+            var thisUser = entryRepo.Users.FirstOrDefault(users => users.Id == id);
+            entryRepo.Remove(thisUser);
             return RedirectToAction("Index");
         }
         public IActionResult Details(string id)
         {
-            var thisUser = _db.Users.FirstOrDefault(users => users.Id == id);
+            var thisUser = entryRepo.Users.FirstOrDefault(users => users.Id == id);
             return View(thisUser);
         }
         public IActionResult Log(string id)
         {
-            var thisUser = _db.Users.Include(user => user.Log).FirstOrDefault(users => users.Id == id);
+            var thisUser = entryRepo.Users.Include(user => user.Log).FirstOrDefault(users => users.Id == id);
             return View(thisUser);
         }
         public IActionResult CreateEntry(string id)
@@ -108,8 +113,7 @@ namespace FitnessLog.Controllers
         [HttpPost]
         public IActionResult CreateEntry(Entry entry)
         {
-            _db.Log.Add(entry);
-            _db.SaveChanges();
+            entryRepo.Save(entry);
             return RedirectToAction("Log", new { id = entry.UserId });
         }
     }

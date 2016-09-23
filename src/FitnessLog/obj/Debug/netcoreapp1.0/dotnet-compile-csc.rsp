@@ -214,5 +214,7 @@
 "C:\Users\epicodus\Desktop\FitnessLog\src\FitnessLog\Models\EntryExerciseJoin.cs"
 "C:\Users\epicodus\Desktop\FitnessLog\src\FitnessLog\Models\Exercise.cs"
 "C:\Users\epicodus\Desktop\FitnessLog\src\FitnessLog\Models\FitnessLogDbContext.cs"
+"C:\Users\epicodus\Desktop\FitnessLog\src\FitnessLog\Models\Repositories\EFEntryRepository.cs"
+"C:\Users\epicodus\Desktop\FitnessLog\src\FitnessLog\Models\Repositories\IEntryRepository.cs"
 "C:\Users\epicodus\Desktop\FitnessLog\src\FitnessLog\Models\ViewModels\LoginViewModel.cs"
 "C:\Users\epicodus\Desktop\FitnessLog\src\FitnessLog\Models\ViewModels\RegisterViewModel.cs"
