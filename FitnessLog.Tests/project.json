@@ -1,13 +1,10 @@
 ﻿{
-  "version": "1.0.0-*",
-  "testRunner": "xunit",
   "dependencies": {
+    "dotnet-test-xunit": "2.2.0-preview2-build1029",
+    "FitnessLog": "1.0.0-*",
     "NETStandard.Library": "1.6.0",
-    "xunit": "2.1.0",
-    "dotnet-test-xunit": "1.0.0-rc2-build10025",
-    "FitnessLog": "1.0.0-*"
+    "xunit": "2.2.0-beta2-build3300"
   },
-
   "frameworks": {
     "netcoreapp1.0": {
       "imports": [
@@ -22,5 +19,7 @@
         }
       }
     }
-  }
+  },
+  "testRunner": "xunit",
+  "version": "1.0.0-*"
 }

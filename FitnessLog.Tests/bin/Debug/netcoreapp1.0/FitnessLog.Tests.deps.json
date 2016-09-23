@@ -1,25 +1,25 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0",
-    "signature": "e4c32db1c4db2871546b086e16c9b1e45182e45d"
+    "signature": "f68cacd2b179634796c745a7e4a1407566a5e1ec"
   },
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v1.0": {
       "FitnessLog.Tests/1.0.0": {
         "dependencies": {
-          "xunit": "2.1.0",
-          "dotnet-test-xunit": "1.0.0-rc2-build10025",
-          "FitnessLog": "1.0.0"
+          "dotnet-test-xunit": "2.2.0-preview2-build1029",
+          "FitnessLog": "1.0.0",
+          "xunit": "2.2.0-beta2-build3300"
         },
         "runtime": {
           "FitnessLog.Tests.dll": {}
         }
       },
-      "dotnet-test-xunit/1.0.0-rc2-build10025": {
+      "dotnet-test-xunit/2.2.0-preview2-build1029": {
         "dependencies": {
-          "Microsoft.Extensions.Testing.Abstractions": "1.0.0-preview1-002702",
-          "xunit.runner.reporters": "2.1.0"
+          "Microsoft.Extensions.Testing.Abstractions": "1.0.0-preview2-003121",
+          "xunit.runner.reporters": "2.2.0-beta2-build3300"
         },
         "runtime": {
           "lib/netcoreapp1.0/dotnet-test-xunit.dll": {}
@@ -470,12 +470,12 @@
           "lib/netstandard1.3/Microsoft.AspNetCore.WebUtilities.dll": {}
         }
       },
-      "Microsoft.DiaSymReader/1.0.6": {
+      "Microsoft.DiaSymReader/1.0.8": {
         "runtime": {
-          "lib/portable-net45+win8/Microsoft.DiaSymReader.dll": {}
+          "lib/netstandard1.1/Microsoft.DiaSymReader.dll": {}
         }
       },
-      "Microsoft.DiaSymReader.Native/1.3.3": {
+      "Microsoft.DiaSymReader.Native/1.4.0-rc2": {
         "runtimeTargets": {
           "runtimes/win-x64/native/Microsoft.DiaSymReader.Native.amd64.dll": {
             "rid": "win-x64",
@@ -508,16 +508,16 @@
           "lib/netstandard1.3/Microsoft.DotNet.InternalAbstractions.dll": {}
         }
       },
-      "Microsoft.DotNet.ProjectModel/1.0.0-rc2-002702": {
+      "Microsoft.DotNet.ProjectModel/1.0.0-rc3-003121": {
         "dependencies": {
           "Microsoft.Extensions.DependencyModel": "1.0.0",
           "Newtonsoft.Json": "9.0.1",
-          "NuGet.Packaging": "3.5.0-beta-final",
-          "NuGet.RuntimeModel": "3.5.0-beta-final",
+          "NuGet.Packaging": "3.5.0-beta2-1484",
+          "NuGet.RuntimeModel": "3.5.0-beta2-1484",
           "System.Runtime.Serialization.Primitives": "4.1.1"
         },
         "runtime": {
-          "lib/netstandard1.5/Microsoft.DotNet.ProjectModel.dll": {}
+          "lib/netstandard1.6/Microsoft.DotNet.ProjectModel.dll": {}
         }
       },
       "Microsoft.EntityFrameworkCore/1.0.0": {
@@ -732,15 +732,15 @@
           "lib/netstandard1.0/Microsoft.Extensions.Primitives.dll": {}
         }
       },
-      "Microsoft.Extensions.Testing.Abstractions/1.0.0-preview1-002702": {
+      "Microsoft.Extensions.Testing.Abstractions/1.0.0-preview2-003121": {
         "dependencies": {
-          "Microsoft.DiaSymReader": "1.0.6",
-          "Microsoft.DiaSymReader.Native": "1.3.3",
-          "Microsoft.DotNet.ProjectModel": "1.0.0-rc2-002702",
+          "Microsoft.DiaSymReader": "1.0.8",
+          "Microsoft.DiaSymReader.Native": "1.4.0-rc2",
+          "Microsoft.DotNet.ProjectModel": "1.0.0-rc3-003121",
           "Newtonsoft.Json": "9.0.1"
         },
         "runtime": {
-          "lib/netstandard1.5/Microsoft.Extensions.Testing.Abstractions.dll": {}
+          "lib/netstandard1.6/Microsoft.Extensions.Testing.Abstractions.dll": {}
         }
       },
       "Microsoft.Extensions.WebEncoders/1.0.0": {
@@ -769,55 +769,54 @@
           "lib/netstandard1.0/Newtonsoft.Json.dll": {}
         }
       },
-      "NuGet.Common/3.5.0-beta-final": {
+      "NuGet.Common/3.5.0-beta2-1484": {
         "runtime": {
           "lib/netstandard1.3/NuGet.Common.dll": {}
         }
       },
-      "NuGet.Frameworks/3.5.0-beta-final": {
-        "dependencies": {
-          "NuGet.Versioning": "3.5.0-beta-final"
-        },
+      "NuGet.Frameworks/3.5.0-beta2-1484": {
         "runtime": {
           "lib/netstandard1.3/NuGet.Frameworks.dll": {}
         }
       },
-      "NuGet.Packaging/3.5.0-beta-final": {
+      "NuGet.Packaging/3.5.0-beta2-1484": {
         "dependencies": {
-          "NuGet.Common": "3.5.0-beta-final",
-          "NuGet.Packaging.Core": "3.5.0-beta-final"
+          "NuGet.Common": "3.5.0-beta2-1484",
+          "NuGet.Packaging.Core": "3.5.0-beta2-1484"
         },
         "runtime": {
           "lib/netstandard1.3/NuGet.Packaging.dll": {}
         }
       },
-      "NuGet.Packaging.Core/3.5.0-beta-final": {
+      "NuGet.Packaging.Core/3.5.0-beta2-1484": {
         "dependencies": {
-          "NuGet.Packaging.Core.Types": "3.5.0-beta-final"
+          "NuGet.Common": "3.5.0-beta2-1484",
+          "NuGet.Packaging.Core.Types": "3.5.0-beta2-1484"
         },
         "runtime": {
           "lib/netstandard1.3/NuGet.Packaging.Core.dll": {}
         }
       },
-      "NuGet.Packaging.Core.Types/3.5.0-beta-final": {
+      "NuGet.Packaging.Core.Types/3.5.0-beta2-1484": {
         "dependencies": {
-          "NuGet.Frameworks": "3.5.0-beta-final"
+          "NuGet.Frameworks": "3.5.0-beta2-1484",
+          "NuGet.Versioning": "3.5.0-beta2-1484"
         },
         "runtime": {
           "lib/netstandard1.3/NuGet.Packaging.Core.Types.dll": {}
         }
       },
-      "NuGet.RuntimeModel/3.5.0-beta-final": {
+      "NuGet.RuntimeModel/3.5.0-beta2-1484": {
         "dependencies": {
           "Newtonsoft.Json": "9.0.1",
-          "NuGet.Frameworks": "3.5.0-beta-final",
-          "NuGet.Versioning": "3.5.0-beta-final"
+          "NuGet.Frameworks": "3.5.0-beta2-1484",
+          "NuGet.Versioning": "3.5.0-beta2-1484"
         },
         "runtime": {
           "lib/netstandard1.3/NuGet.RuntimeModel.dll": {}
         }
       },
-      "NuGet.Versioning/3.5.0-beta-final": {
+      "NuGet.Versioning/3.5.0-beta2-1484": {
         "runtime": {
           "lib/netstandard1.0/NuGet.Versioning.dll": {}
         }
@@ -936,62 +935,59 @@
           "lib/netstandard1.0/System.Text.Encodings.Web.dll": {}
         }
       },
-      "xunit/2.1.0": {
+      "xunit/2.2.0-beta2-build3300": {
         "dependencies": {
-          "xunit.assert": "2.1.0",
-          "xunit.core": "2.1.0"
+          "xunit.assert": "2.2.0-beta2-build3300",
+          "xunit.core": "2.2.0-beta2-build3300"
         }
       },
-      "xunit.abstractions/2.0.0": {
+      "xunit.abstractions/2.0.1-rc2": {
         "runtime": {
-          "lib/portable-net45+win+wpa81+wp80+monotouch+monoandroid+Xamarin.iOS/xunit.abstractions.dll": {}
+          "lib/netstandard1.0/xunit.abstractions.dll": {}
         }
       },
-      "xunit.assert/2.1.0": {
+      "xunit.assert/2.2.0-beta2-build3300": {
         "runtime": {
-          "lib/dotnet/xunit.assert.dll": {}
+          "lib/netstandard1.0/xunit.assert.dll": {}
         }
       },
-      "xunit.core/2.1.0": {
+      "xunit.core/2.2.0-beta2-build3300": {
         "dependencies": {
-          "xunit.abstractions": "2.0.0",
-          "xunit.extensibility.core": "2.1.0",
-          "xunit.extensibility.execution": "2.1.0"
+          "xunit.extensibility.core": "2.2.0-beta2-build3300",
+          "xunit.extensibility.execution": "2.2.0-beta2-build3300"
         }
       },
-      "xunit.extensibility.core/2.1.0": {
+      "xunit.extensibility.core/2.2.0-beta2-build3300": {
         "dependencies": {
-          "xunit.abstractions": "2.0.0"
+          "xunit.abstractions": "2.0.1-rc2"
         },
         "runtime": {
-          "lib/dotnet/xunit.core.dll": {}
+          "lib/netstandard1.0/xunit.core.dll": {}
         }
       },
-      "xunit.extensibility.execution/2.1.0": {
+      "xunit.extensibility.execution/2.2.0-beta2-build3300": {
         "dependencies": {
-          "xunit.abstractions": "2.0.0",
-          "xunit.extensibility.core": "2.1.0"
+          "xunit.extensibility.core": "2.2.0-beta2-build3300"
         },
         "runtime": {
-          "lib/dotnet/xunit.execution.dotnet.dll": {}
+          "lib/netstandard1.0/xunit.execution.dotnet.dll": {}
         }
       },
-      "xunit.runner.reporters/2.1.0": {
+      "xunit.runner.reporters/2.2.0-beta2-build3300": {
         "dependencies": {
           "Newtonsoft.Json": "9.0.1",
-          "xunit.abstractions": "2.0.0",
-          "xunit.runner.utility": "2.1.0"
+          "xunit.runner.utility": "2.2.0-beta2-build3300"
         },
         "runtime": {
-          "lib/dotnet/xunit.runner.reporters.dotnet.dll": {}
+          "lib/netstandard1.1/xunit.runner.reporters.dotnet.dll": {}
         }
       },
-      "xunit.runner.utility/2.1.0": {
+      "xunit.runner.utility/2.2.0-beta2-build3300": {
         "dependencies": {
-          "xunit.abstractions": "2.0.0"
+          "xunit.abstractions": "2.0.1-rc2"
         },
         "runtime": {
-          "lib/dotnet/xunit.runner.utility.dotnet.dll": {}
+          "lib/netstandard1.1/xunit.runner.utility.dotnet.dll": {}
         }
       },
       "FitnessLog/1.0.0": {
@@ -1019,10 +1015,10 @@
       "serviceable": false,
       "sha512": ""
     },
-    "dotnet-test-xunit/1.0.0-rc2-build10025": {
+    "dotnet-test-xunit/2.2.0-preview2-build1029": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-MhxfSjj6z/dpct/9zsssDAXKxWXhAx9s39080Qm+59k2vLJafUjUTzl4cs2rKHK7BYty2EyNxir68v7cJcaBEA=="
+      "sha512": "sha512-mPl4HHGcXsE4ljw3sHCOUvlyhXHDpfFO6qz0HbTQrhrFT8Tgm/HFLfz6TpMXUfch7rRL23kR8i0yjQPYdsl6EQ=="
     },
     "Microsoft.AspNetCore.Antiforgery/1.0.0": {
       "type": "package",
@@ -1239,25 +1235,25 @@
       "serviceable": true,
       "sha512": "sha512-D0licSnS1JgqQ/gYlN41wXbeYG3dFIdjY781YzMHZ5gBB7kczacshW+H6plZkXRr/cCnAJWGa31o1R8c5GEy/A=="
     },
-    "Microsoft.DiaSymReader/1.0.6": {
+    "Microsoft.DiaSymReader/1.0.8": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ai2eBJrXlHa0hecUKnEyacH0iXxGNOMpc9X0s7VAeqqh5TSTW70QMhTRZ0FNCtf3R/W67K4a+uf3R7MASmAjrg=="
+      "sha512": "sha512-ABLULVhCAiyBFLBT5xX6vB4NhZDgwUylGRQK+zW5nZn2rbh1f8LOnFZ9gVSxzL6qOzPNb32Nu3QZ43iZerHOxA=="
     },
-    "Microsoft.DiaSymReader.Native/1.3.3": {
+    "Microsoft.DiaSymReader.Native/1.4.0-rc2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-mjATkm+L2UlP35gO/ExNutLDfgX4iiwz1l/8sYVoeGHp5WnkEDu0NfIEsC4Oy/pCYeRw0/6SGB+kArJVNNvENQ=="
+      "sha512": "sha512-KIQOG+U6btTHL5KkXYofMpyCzVx+6EcDPS9GBRGGhlrTjJqcqAM6a6a0D0Dur/HPnAdmGLtSHVjCDZijGJFCAA=="
     },
     "Microsoft.DotNet.InternalAbstractions/1.0.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-AAguUq7YyKk3yDWPoWA8DrLZvURxB/LrDdTn1h5lmPeznkFUpfC3p459w5mQYQE0qpquf/CkSQZ0etiV5vRHFA=="
     },
-    "Microsoft.DotNet.ProjectModel/1.0.0-rc2-002702": {
+    "Microsoft.DotNet.ProjectModel/1.0.0-rc3-003121": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ryslqqMpPRcJma9kJn3V1/GydzUny6i6xfpQ0cqfWmlPdSQ9Hnh6x2l8yVqU+ueCiVffKWn/Or80moLwroXP/A=="
+      "sha512": "sha512-wnWw5KsKinG2wWxdoQIJXZlMFvPNhL7WmIyW9q6xrZFUi/uld5PC3ksq2QDZepF148FUjCIyTP+TnRwU3RJqUg=="
     },
     "Microsoft.EntityFrameworkCore/1.0.0": {
       "type": "package",
@@ -1394,10 +1390,10 @@
       "serviceable": true,
       "sha512": "sha512-3q2vzfKEDjL6JFkRpk5SFA3zarYsO6+ZYgoucNImrUMzDn0mFbEOL5p9oPoWiypwypbJVVjWTf557bXZ0YFLig=="
     },
-    "Microsoft.Extensions.Testing.Abstractions/1.0.0-preview1-002702": {
+    "Microsoft.Extensions.Testing.Abstractions/1.0.0-preview2-003121": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-NE4Efz4kvkztJ80CSifUlP0UaBP4iOOaeTVk6nrj+ZIJzhsRGLbecIe4oX8G82pkCkqFF9i8KTl7YYUwpQY5Wg=="
+      "sha512": "sha512-q3Uq07d6LbYr0NiX5Dz9GCbXJv4vkmSbUvFEmov3Vo4prZWjhFzF+byk2tWAEEqtZ6ereMYXBUt99wCTtANk6Q=="
     },
     "Microsoft.Extensions.WebEncoders/1.0.0": {
       "type": "package",
@@ -1414,40 +1410,40 @@
       "serviceable": true,
       "sha512": "sha512-U82mHQSKaIk+lpSVCbWYKNavmNH1i5xrExDEquU1i6I5pV6UMOqRnJRSlKO3cMPfcpp0RgDY+8jUXHdQ4IfXvw=="
     },
-    "NuGet.Common/3.5.0-beta-final": {
+    "NuGet.Common/3.5.0-beta2-1484": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-7eCg4ky9NtTnxY1+2VtDKIYX137QejH8Dsuw6fENU53N6OeoROsrv1MUm0pu4e3TF8VH1eL5G3Vx/G30VdXEDg=="
+      "sha512": "sha512-rLBmcZOPVF7Mne/LumDNACZZyI5B67hjylt+Z/WSEUQ/IXE9nLv8IVL0+T9xljIaSSQCjO8cOtmJ6ztqrsQKcQ=="
     },
-    "NuGet.Frameworks/3.5.0-beta-final": {
+    "NuGet.Frameworks/3.5.0-beta2-1484": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Si7O1OFxUryBq3xuq2AIwADM8WUMIBQOmUdTJBSaxV+KesShLJfgrr7Dl+Tg/nVETSEArJS8ktscv7gjKqtosg=="
+      "sha512": "sha512-AZoX0c05qgSfx0IOGTbLXa2fD7eM2WUqKP3osMMvSxK+tOGmctHuFlvjXxMHBv9yg0/13KdH0osV/zI7+SjzOA=="
     },
-    "NuGet.Packaging/3.5.0-beta-final": {
+    "NuGet.Packaging/3.5.0-beta2-1484": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-wJSrtokTPmpIkNhJLiG5GPxdRFCVl6XB3MmgLCyRhD2O2wZVQqvvL6SELOz/61EU0C8m9ni/UiiNRqTEtH5QZw=="
+      "sha512": "sha512-/+7d3vvCel4KhJo6AyOneg07fbAkUsy/ORgIaxW3nNdJubCXSrAdg1wfQpwzBygmErjrPcdYzzk2y2Sc6m7hwQ=="
     },
-    "NuGet.Packaging.Core/3.5.0-beta-final": {
+    "NuGet.Packaging.Core/3.5.0-beta2-1484": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-sdc8dUnbjEpNzIK5h5frJgn7ARQjQLdXMC5YrMHoEh0sCJnd2p1Lu4JvHK7mqn/MurVCAvoAjNDyazzFaVCD0w=="
+      "sha512": "sha512-Lsz2lgYH0mdOvuL8C3G4XLm9EaAheBOqrgLgnBNxCeLGLU+n+Zu8Lt6K1bpzgkeKyTyAhJdWbv/3lS4w7s04gw=="
     },
-    "NuGet.Packaging.Core.Types/3.5.0-beta-final": {
+    "NuGet.Packaging.Core.Types/3.5.0-beta2-1484": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-35AVdtLFJFp66CI9EDS61iviOe4UsCwfGh7RILK3j2ihZtlbTIIS5ygjmS8GnTkhNpmdwQRIk/rUempv4ABBxQ=="
+      "sha512": "sha512-4mEXZBoe/RKTDVQGwdrl/f5gqolU2d1JWjpbGdQv5EG/xQCC8IQ8FTNYzk0+ydV/vuRM1yaNe+6UQ90nGE+1kQ=="
     },
-    "NuGet.RuntimeModel/3.5.0-beta-final": {
+    "NuGet.RuntimeModel/3.5.0-beta2-1484": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-5opNw7zHG5wC0Qx9AzlopdPg48Tf/QVcVVKmPRuwUa3VBA1b9DBjY+1jCkaof8JRzyHZqLnxd6T9BuT98Jk0YQ=="
+      "sha512": "sha512-vg29WbKcExD9AJrKMr7NB9pnp+0MTAcDHB6gFHCqRynSo6jgjC8q+ZPAlxC115rQiO8fqzOEP59Q8hx20anUtA=="
     },
-    "NuGet.Versioning/3.5.0-beta-final": {
+    "NuGet.Versioning/3.5.0-beta2-1484": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-fwFF9Mck1hgZVDvvJLU81gcaidMksfRoCwyjBALEXxnp1fJr4xLyGbTRdbf2OKI5OODGuUpxaMkcz7P4T8HsXw=="
+      "sha512": "sha512-Stok+SI5lWxOkTgZZM7jT4xuAZogm5+j85mKJeHSXb8o0OAbB+qDX9jkdM2wIEnjoR8R29J0nQYwk2Kl2lWFpA=="
     },
     "Remotion.Linq/2.1.1": {
       "type": "package",
@@ -1529,45 +1525,45 @@
       "serviceable": true,
       "sha512": "sha512-TWZnuiJgPDAEEUfobD7njXvSVR2Toz+jvKWds6yL4oSztmKQfnWzucczjzA+6Dv1bktBdY71sZW1YN0X6m9chQ=="
     },
-    "xunit/2.1.0": {
+    "xunit/2.2.0-beta2-build3300": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-u/7VQSOSXa7kSG4iK6Lcn7RqKZQ3hk7cnyMNVMpXHSP0RI5VQEtc44hvkG3LyWOVsx1dhUDD3rPAHAxyOUDQJw=="
+      "sha512": "sha512-jUMf+Hrw8+XZN56TfO+JjoibR5L806/kgDIkwCg9OXLlfnA4li4JTmH342ifYj1QMR10is8hfYYFTyjHq0+aQg=="
     },
-    "xunit.abstractions/2.0.0": {
+    "xunit.abstractions/2.0.1-rc2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-NAdxKQRzuLnCZ0g++x6i87/8rMBpQoRiRlRNLAqfODm2zJPbteHRoSER3DXfxnqrHXyBJT8rFaZ8uveBeQyaMA=="
+      "sha512": "sha512-iUHMlyMDaXJ8N8qozg19tRlW0QiZPJ47ZJyV1fnpppGWdmukyq89/pg4HqpxQ52Co3Leo8NmiiYkB/gN48pZ+A=="
     },
-    "xunit.assert/2.1.0": {
+    "xunit.assert/2.2.0-beta2-build3300": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Hhhw+YaTe+BGhbr57dxVE+6VJk8BfThqFFii1XIsSZ4qx+SSCixprJC10JkiLRVSTfWyT8W/4nAf6NQgIrmBxA=="
+      "sha512": "sha512-5zsV2UhRQV5Ldme1N/NDhIBvQQTYdxmK87FXWWou1x3z7qpsZwe1YOjb0CY4F+1oXag8i9uTh/nZwv8jM66onA=="
     },
-    "xunit.core/2.1.0": {
+    "xunit.core/2.2.0-beta2-build3300": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-jlbYdPbnkPIRwJllcT/tQZCNsSElVDEymdpJfH79uTUrPARkELVYw9o/zhAjKZXmeikGqGK5C2Yny4gTNoEu0Q=="
+      "sha512": "sha512-HgKP6+FUKcIcVFMDgoTCANRKOgGeEDvg2a2AL3mOyBHE//grWL1EO0KybxUw26S8fnNJrhmI5LBWyVUIsPxI5Q=="
     },
-    "xunit.extensibility.core/2.1.0": {
+    "xunit.extensibility.core/2.2.0-beta2-build3300": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ANWM3WxeaeHjACLRlmrv+xOc0WAcr3cvIiJE+gqbdzTv1NCH4p1VDyT+8WmmdCc9db0WFiJLaDy4YTYsL1wWXw=="
+      "sha512": "sha512-d+UCqIL8Je3tSdhF7w6NZdzH2jYzNh2LhsMp0gUVAD3NgVEo2oK/3Xr7ZlYZM40Y6fJWoO46UntzrpNlix75mg=="
     },
-    "xunit.extensibility.execution/2.1.0": {
+    "xunit.extensibility.execution/2.2.0-beta2-build3300": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-tAoNafoVknKa3sZJPMvtZRnhOSk3gasEGeceSm7w/gyGwsR/OXFxndWJB1xSHeoy33d3Z6jFqn4A3j+pWCF0Ew=="
+      "sha512": "sha512-z0DgzvWxQtXaj2qebFkW5f69ZItvY/YRWEbKwL0yIbvhiCViiuHlP+qvvloVlrlsOuo+Y/vfjQb/3Cz+ok/+5A=="
     },
-    "xunit.runner.reporters/2.1.0": {
+    "xunit.runner.reporters/2.2.0-beta2-build3300": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ja0kJrvwSiho2TRFpfHfa+6tGJI5edcyD8fdekTkjn7Us17PbGqglIihRe8sR9YFAmS4ipEC8+7CXOM/b69ENQ=="
+      "sha512": "sha512-1NqeT2IWfqk9/zBkHbf6SS1bokwu0Mvt70lQp8bJZpvQgi+SDAzuhEwWTcsjMblY2FK8BHDbjauu+IO2GhbhAA=="
     },
-    "xunit.runner.utility/2.1.0": {
+    "xunit.runner.utility/2.2.0-beta2-build3300": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-jJJHROwskIhdQuYw7exe7KaW20dOCa+lzV/lY7Zdh1ZZzdUPpScMi9ReJIutqiyjhemGF8V/GaMIPrcjyZ4ioQ=="
+      "sha512": "sha512-lotqjLPg8NnjZHlRpj0Yj5TI3z/7hzK7+tb6R7qRAREDoH9P88EDCWJyy2xJh/R6PfbS9KYTaT/Z2ob9gx6PgQ=="
     },
     "FitnessLog/1.0.0": {
       "type": "project",
