@@ -17,4 +17,6 @@ namespace FitnessLog.Models
         public int Weight { get; set; }
         public virtual ICollection<Entry> Log { get; set; }
     };
+
+    //comment
 }
