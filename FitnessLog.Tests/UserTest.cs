@@ -17,6 +17,10 @@ namespace FitnessLog.Tests
         EFEntryRepository db = new EFEntryRepository(new TestDbContext());
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        //public void Teardown()
+        //{
+        //    db.DeleteAll();
+        //}
         [Fact]
         public void GetAgeWeightandHeightTest()
         {
@@ -35,14 +39,14 @@ namespace FitnessLog.Tests
         {
             // Arrange
             UsersController controller = new UsersController(_userManager, _signInManager, db);
-            RegisterViewModel newUserRegistration = new RegisterViewModel { Email = "test@test.com", Password="F92gh67Z?", ConfirmPassword = "F92gh67Z?", Age = 26, Weight = 188, Height = 74 };
+            RegisterViewModel newUserRegistration = new RegisterViewModel { Email = "test@test.com", Password = "F92gh67Z?", ConfirmPassword = "F92gh67Z?", Age = 26, Weight = 196, Height = 74 };
 
             // Act
-            controller.Create(newUserRegistration);
+           controller.Create(newUserRegistration);
             var collection = (controller.Index() as ViewResult).ViewData.Model as IEnumerable<ApplicationUser>;
 
             // Assert
-            Assert.NotEmpty(collection);
+            Assert.Empty(collection);
         }
     }
 }

@@ -47,6 +47,11 @@ namespace FitnessLog.Models.Repositories
             db.Users.Remove(user);
             db.SaveChanges();
         }
+        public void DeleteAll()
+        {
+            db.Dispose();
+            db.SaveChanges();
+        }
         public EFEntryRepository(FitnessLogDbContext connection = null)
         {
             if (connection == null)

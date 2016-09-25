@@ -11,6 +11,12 @@ logs that may be of interest.
 * From PowerShell, Navigate into the folder containing project.json (src/FitnessLog)
 * Run >dotnet ef database update
 
+For tests to work:
+
+* After doing the above, open up Sequel Server Management Studio, go to Obhect Explorer on left hand side of screen
+* Under Databases, right-click Fitness Log, select Tasks/Back-Up. Click OK in the window that pops up
+* Right click Fitness Log, select Task/Restore. In the window that pops up under destination rename FitnessLog to FitnessLogTest. Click OK
+
 ## Running / Development
 
 * Run from Microsoft Visual Studio
