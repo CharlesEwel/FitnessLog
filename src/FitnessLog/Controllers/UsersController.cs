@@ -62,7 +62,16 @@ namespace FitnessLog.Controllers
         {
             LoginViewModel model = new LoginViewModel { Email = username, Password = password };
             Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, isPersistent: true, lockoutOnFailure: false);
-            return Json(result);
+            if (result.Succeeded)
+            {
+                return Json(model);
+            }
+            else
+            {
+                LoginViewModel failmodel = new LoginViewModel { Email = "fail", Password = password };
+                return Json(failmodel);
+            }
+            
         }
         [HttpPost]
         public async Task<IActionResult> LogOff()

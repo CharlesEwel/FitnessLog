@@ -13,11 +13,22 @@
                     url: '@Url.Action("LogIn", "Users")',
                     type: 'POST',
                     dataType: 'json',
-                    data: $(this).serialize()
+                    data: $(this).serialize(),
+                    success: function (result) {
+                        console.log(result)
+                        if (result.email != "fail")
+                        {
+                            $(".logged-out").hide()
+                            $(".oops").hide()
+                            $(".logged-in").show()
+                            $(".greeting").html("Hello " + result.email);
+                        }
+                        else
+                        {
+                            $(".oops").show()
+                        }
+                    }
                 });
-                $(".logged-out").hide()
-                $(".logged-in").show()
-                $(".greeting").html()
             });
         });
     </script>
@@ -34,6 +45,9 @@
     else
     {
         <div class="logged-out">
+            <div class="oops" style="display: none">
+                <p>Oops! That does not match our records. Please try again.</p>
+            </div>
             <form action="LogIn" class="log-in">
                 <label for="username">Username: </label>
                 <input type="text" name="username" />
