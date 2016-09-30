@@ -125,5 +125,11 @@ namespace FitnessLog.Controllers
             entryRepo.Save(entry);
             return RedirectToAction("Log", new { id = entry.UserId });
         }
+        public async Task<IActionResult> Search(string query)
+        {
+            Search newSearch = new Search(query);
+            var result = await newSearch.Run();
+            return Json(result);
+        }
     }
 }

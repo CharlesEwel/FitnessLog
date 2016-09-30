@@ -41,6 +41,11 @@ namespace FitnessLog.Models
     /// </summary>
     internal class Search
     {
+        public string searchTerm { get; set; }
+        public Search(string searchQuery)
+        {
+            searchTerm = searchQuery;
+        }
         //[STAThread]
         //static void Main(string[] args)
         //{
@@ -63,7 +68,7 @@ namespace FitnessLog.Models
         //    Console.ReadKey();
         //}
 
-        private async Task Run()
+        public async Task<string> Run()
         {
             var youtubeService = new YouTubeService(new BaseClientService.Initializer()
             {
@@ -72,8 +77,8 @@ namespace FitnessLog.Models
             });
 
             var searchListRequest = youtubeService.Search.List("snippet");
-            searchListRequest.Q = "Google"; // Replace with your search term.
-            searchListRequest.MaxResults = 50;
+            searchListRequest.Q = searchTerm;
+            searchListRequest.MaxResults = 10;
 
             // Call the search.list method to retrieve results matching the specified query term.
             var searchListResponse = await searchListRequest.ExecuteAsync();
@@ -105,6 +110,8 @@ namespace FitnessLog.Models
             Console.WriteLine(String.Format("Videos:\n{0}\n", string.Join("\n", videos)));
             Console.WriteLine(String.Format("Channels:\n{0}\n", string.Join("\n", channels)));
             Console.WriteLine(String.Format("Playlists:\n{0}\n", string.Join("\n", playlists)));
+
+            return String.Format("Videos:\n{0}\n", string.Join("\n", videos));
         }
     }
 }

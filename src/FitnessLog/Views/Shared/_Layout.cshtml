@@ -30,6 +30,18 @@
                     }
                 });
             });
+            $('.search').submit(function (event) {
+                event.preventDefault();
+                $.ajax({
+                    url: '@Url.Action("Search", "Users")',
+                    type: 'GET',
+                    dataType: 'json',
+                    data: $(this).serialize(),
+                    success: function (result) {
+                        console.log(result)
+                    }
+                });
+            });
         });
     </script>
 </head>
