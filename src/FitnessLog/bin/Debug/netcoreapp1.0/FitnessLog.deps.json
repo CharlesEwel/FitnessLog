@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0",
-    "signature": "f1b07b3b67a112f58ffd3e2466b55f78655f480b"
+    "signature": "9b47ac367e9e7341607ef90da46d008ce63fdf22"
   },
   "compilationOptions": {
     "defines": [
@@ -26,13 +26,108 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "1.0.0",
           "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0",
           "Microsoft.Extensions.Configuration.Json": "1.0.0",
-          "Microsoft.Extensions.Logging.Console": "1.0.0"
+          "Microsoft.Extensions.Logging.Console": "1.0.0",
+          "Google.Apis": "1.16.0",
+          "Google.Apis.YouTube.v3": "1.16.0.582"
         },
         "runtime": {
           "FitnessLog.dll": {}
         },
         "compile": {
           "FitnessLog.dll": {}
+        }
+      },
+      "Google.Apis/1.16.0": {
+        "dependencies": {
+          "Google.Apis.Core": "1.16.0",
+          "System.Collections": "4.0.11",
+          "System.Diagnostics.Debug": "4.0.11",
+          "System.IO": "4.1.0",
+          "System.IO.Compression": "4.1.0",
+          "System.Linq": "4.1.0",
+          "System.Net.Http": "4.1.0",
+          "System.Net.Primitives": "4.0.11",
+          "System.Reflection": "4.1.0",
+          "System.Reflection.TypeExtensions": "4.1.0",
+          "System.Runtime": "4.1.0",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Text.Encoding": "4.0.11",
+          "System.Threading": "4.0.11",
+          "System.Threading.Tasks": "4.0.11"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Google.Apis.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.3/Google.Apis.dll": {}
+        }
+      },
+      "Google.Apis.Auth/1.16.0": {
+        "dependencies": {
+          "Google.Apis.Core": "1.16.0",
+          "Newtonsoft.Json": "9.0.1",
+          "Portable.BouncyCastle": "1.8.1.1",
+          "System.Collections": "4.0.11",
+          "System.Console": "4.0.0",
+          "System.Diagnostics.Debug": "4.0.11",
+          "System.IO": "4.1.0",
+          "System.IO.FileSystem": "4.0.1",
+          "System.IO.FileSystem.Primitives": "4.0.1",
+          "System.Linq": "4.1.0",
+          "System.Net.Http": "4.1.0",
+          "System.Net.Primitives": "4.0.11",
+          "System.Net.Requests": "4.0.11",
+          "System.Runtime": "4.1.0",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Text.Encoding": "4.0.11",
+          "System.Threading": "4.0.11",
+          "System.Threading.Tasks": "4.0.11"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Google.Apis.Auth.PlatformServices.dll": {},
+          "lib/netstandard1.3/Google.Apis.Auth.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.3/Google.Apis.Auth.PlatformServices.dll": {},
+          "lib/netstandard1.3/Google.Apis.Auth.dll": {}
+        }
+      },
+      "Google.Apis.Core/1.16.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "9.0.1",
+          "System.Collections": "4.0.11",
+          "System.Diagnostics.Debug": "4.0.11",
+          "System.Globalization": "4.0.11",
+          "System.IO": "4.1.0",
+          "System.Linq": "4.1.0",
+          "System.Net.Http": "4.1.0",
+          "System.Net.Primitives": "4.0.11",
+          "System.Reflection": "4.1.0",
+          "System.Reflection.Extensions": "4.0.1",
+          "System.Reflection.TypeExtensions": "4.1.0",
+          "System.Runtime": "4.1.0",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Text.RegularExpressions": "4.1.0",
+          "System.Threading": "4.0.11",
+          "System.Threading.Tasks": "4.0.11"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Google.Apis.Core.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.3/Google.Apis.Core.dll": {}
+        }
+      },
+      "Google.Apis.YouTube.v3/1.16.0.582": {
+        "dependencies": {
+          "Google.Apis": "1.16.0",
+          "Google.Apis.Auth": "1.16.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Google.Apis.YouTube.v3.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.3/Google.Apis.YouTube.v3.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/1.0.0": {
@@ -1521,6 +1616,30 @@
         },
         "compile": {
           "lib/netstandard1.0/NuGet.Versioning.dll": {}
+        }
+      },
+      "Portable.BouncyCastle/1.8.1.1": {
+        "dependencies": {
+          "System.Collections": "4.0.11",
+          "System.Diagnostics.Debug": "4.0.11",
+          "System.Globalization": "4.0.11",
+          "System.IO": "4.1.0",
+          "System.IO.FileSystem": "4.0.1",
+          "System.IO.FileSystem.Primitives": "4.0.1",
+          "System.Linq": "4.1.0",
+          "System.Reflection": "4.1.0",
+          "System.Reflection.Extensions": "4.0.1",
+          "System.Runtime": "4.1.0",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Text.Encoding": "4.0.11",
+          "System.Threading": "4.0.11",
+          "System.Threading.Tasks": "4.0.11"
+        },
+        "runtime": {
+          "lib/netstandard1.3/crypto.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.3/crypto.dll": {}
         }
       },
       "Remotion.Linq/2.1.1": {
@@ -3441,6 +3560,26 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Google.Apis/1.16.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/p657K7J7p9aRl6QxUjQfNK0AobxnLHwDWdSqAr/17lZeQR+XMuEbIy7No80+zDeS39kKrRVWFlu1vHiws7gRQ=="
+    },
+    "Google.Apis.Auth/1.16.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cnl3TeN/lPtdGcK239v3bc9ZQE68G7UTqsB3iGOA/mR1t39kGZylZ1TlGe1DG34x5kW5sjrf3oToOkpBIYVvpQ=="
+    },
+    "Google.Apis.Core/1.16.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uATqVAsPHlpOf+3VV51xFEIghAMSLJyh1hqoVpnPOlkXBx7fkOcs0qP3tKXtmsaeuyC/7BYM1Tt42lyIyhY2lQ=="
+    },
+    "Google.Apis.YouTube.v3/1.16.0.582": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7Su4Uga6PhLsEZi8QmBTzfg/zvjeo1KWUYLQqa77Wr6Rz3+bm+BjEReqwzIFb9WpvBdhQ97HZ9i2FDyYTHWwrQ=="
+    },
     "Microsoft.AspNetCore.Antiforgery/1.0.0": {
       "type": "package",
       "serviceable": true,
@@ -3915,6 +4054,11 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-Stok+SI5lWxOkTgZZM7jT4xuAZogm5+j85mKJeHSXb8o0OAbB+qDX9jkdM2wIEnjoR8R29J0nQYwk2Kl2lWFpA=="
+    },
+    "Portable.BouncyCastle/1.8.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bKqC2Me9ukybNYTBhlYd2sJ6j2kRV7SgB+JfiP2GueYq6QdM4Ym6PYV5eyrqb6KViOyd3zqQfJp0o6UW5ZG+GQ=="
     },
     "Remotion.Linq/2.1.1": {
       "type": "package",

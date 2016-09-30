@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0",
-    "signature": "f68cacd2b179634796c745a7e4a1407566a5e1ec"
+    "signature": "8d407de412d7f2700de6620e5a43a3f461a69ba7"
   },
   "compilationOptions": {},
   "targets": {
@@ -10,6 +10,8 @@
         "dependencies": {
           "dotnet-test-xunit": "2.2.0-preview2-build1029",
           "FitnessLog": "1.0.0",
+          "Google.Apis": "1.16.0",
+          "Google.Apis.YouTube.v3": "1.16.0.582",
           "xunit": "2.2.0-beta2-build3300"
         },
         "runtime": {
@@ -23,6 +25,42 @@
         },
         "runtime": {
           "lib/netcoreapp1.0/dotnet-test-xunit.dll": {}
+        }
+      },
+      "Google.Apis/1.16.0": {
+        "dependencies": {
+          "Google.Apis.Core": "1.16.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Google.Apis.dll": {}
+        }
+      },
+      "Google.Apis.Auth/1.16.0": {
+        "dependencies": {
+          "Google.Apis.Core": "1.16.0",
+          "Newtonsoft.Json": "9.0.1",
+          "Portable.BouncyCastle": "1.8.1.1"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Google.Apis.Auth.PlatformServices.dll": {},
+          "lib/netstandard1.3/Google.Apis.Auth.dll": {}
+        }
+      },
+      "Google.Apis.Core/1.16.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Google.Apis.Core.dll": {}
+        }
+      },
+      "Google.Apis.YouTube.v3/1.16.0.582": {
+        "dependencies": {
+          "Google.Apis": "1.16.0",
+          "Google.Apis.Auth": "1.16.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Google.Apis.YouTube.v3.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/1.0.0": {
@@ -821,6 +859,11 @@
           "lib/netstandard1.0/NuGet.Versioning.dll": {}
         }
       },
+      "Portable.BouncyCastle/1.8.1.1": {
+        "runtime": {
+          "lib/netstandard1.3/crypto.dll": {}
+        }
+      },
       "Remotion.Linq/2.1.1": {
         "runtime": {
           "lib/netstandard1.0/Remotion.Linq.dll": {}
@@ -1001,7 +1044,9 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "1.0.0",
           "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0",
           "Microsoft.Extensions.Configuration.Json": "1.0.0",
-          "Microsoft.Extensions.Logging.Console": "1.0.0"
+          "Microsoft.Extensions.Logging.Console": "1.0.0",
+          "Google.Apis": "1.16.0",
+          "Google.Apis.YouTube.v3": "1.16.0.582"
         },
         "runtime": {
           "FitnessLog.dll": {}
@@ -1019,6 +1064,26 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-mPl4HHGcXsE4ljw3sHCOUvlyhXHDpfFO6qz0HbTQrhrFT8Tgm/HFLfz6TpMXUfch7rRL23kR8i0yjQPYdsl6EQ=="
+    },
+    "Google.Apis/1.16.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/p657K7J7p9aRl6QxUjQfNK0AobxnLHwDWdSqAr/17lZeQR+XMuEbIy7No80+zDeS39kKrRVWFlu1vHiws7gRQ=="
+    },
+    "Google.Apis.Auth/1.16.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cnl3TeN/lPtdGcK239v3bc9ZQE68G7UTqsB3iGOA/mR1t39kGZylZ1TlGe1DG34x5kW5sjrf3oToOkpBIYVvpQ=="
+    },
+    "Google.Apis.Core/1.16.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uATqVAsPHlpOf+3VV51xFEIghAMSLJyh1hqoVpnPOlkXBx7fkOcs0qP3tKXtmsaeuyC/7BYM1Tt42lyIyhY2lQ=="
+    },
+    "Google.Apis.YouTube.v3/1.16.0.582": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7Su4Uga6PhLsEZi8QmBTzfg/zvjeo1KWUYLQqa77Wr6Rz3+bm+BjEReqwzIFb9WpvBdhQ97HZ9i2FDyYTHWwrQ=="
     },
     "Microsoft.AspNetCore.Antiforgery/1.0.0": {
       "type": "package",
@@ -1444,6 +1509,11 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-Stok+SI5lWxOkTgZZM7jT4xuAZogm5+j85mKJeHSXb8o0OAbB+qDX9jkdM2wIEnjoR8R29J0nQYwk2Kl2lWFpA=="
+    },
+    "Portable.BouncyCastle/1.8.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bKqC2Me9ukybNYTBhlYd2sJ6j2kRV7SgB+JfiP2GueYq6QdM4Ym6PYV5eyrqb6KViOyd3zqQfJp0o6UW5ZG+GQ=="
     },
     "Remotion.Linq/2.1.1": {
       "type": "package",
