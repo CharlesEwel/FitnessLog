@@ -34,7 +34,7 @@
                 event.preventDefault();
                 $.ajax({
                     url: '@Url.Action("Search", "Users")',
-                    type: 'GET',
+                    type: 'POST',
                     dataType: 'json',
                     data: $(this).serialize(),
                     success: function (result) {

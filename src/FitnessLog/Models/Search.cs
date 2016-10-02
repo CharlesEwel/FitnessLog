@@ -78,10 +78,13 @@ namespace FitnessLog.Models
 
             var searchListRequest = youtubeService.Search.List("snippet");
             searchListRequest.Q = searchTerm;
+            //Console.WriteLine("searchTerm: " + searchTerm);
             searchListRequest.MaxResults = 10;
+            //Console.WriteLine("searchListRequest: " + searchListRequest);
 
             // Call the search.list method to retrieve results matching the specified query term.
             var searchListResponse = await searchListRequest.ExecuteAsync();
+            //Console.WriteLine("searchListResponse: " + searchListResponse);
 
             List<string> videos = new List<string>();
             List<string> channels = new List<string>();
@@ -107,9 +110,9 @@ namespace FitnessLog.Models
                 }
             }
 
-            Console.WriteLine(String.Format("Videos:\n{0}\n", string.Join("\n", videos)));
-            Console.WriteLine(String.Format("Channels:\n{0}\n", string.Join("\n", channels)));
-            Console.WriteLine(String.Format("Playlists:\n{0}\n", string.Join("\n", playlists)));
+            //Console.WriteLine(String.Format("Videos:\n{0}\n", string.Join("\n", videos)));
+            //Console.WriteLine(String.Format("Channels:\n{0}\n", string.Join("\n", channels)));
+            //Console.WriteLine(String.Format("Playlists:\n{0}\n", string.Join("\n", playlists)));
 
             return String.Format("Videos:\n{0}\n", string.Join("\n", videos));
         }

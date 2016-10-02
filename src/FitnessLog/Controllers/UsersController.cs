@@ -6,6 +6,7 @@ using FitnessLog.Models;
 using FitnessLog.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using FitnessLog.Models.Repositories;
+using System;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -125,9 +126,11 @@ namespace FitnessLog.Controllers
             entryRepo.Save(entry);
             return RedirectToAction("Log", new { id = entry.UserId });
         }
-        public async Task<IActionResult> Search(string query)
+        [HttpPost]
+        public async Task<IActionResult> Search(string searchQuery)
         {
-            Search newSearch = new Search(query);
+            Search newSearch = new Search(searchQuery);
+            Console.WriteLine("query:" + newSearch.searchTerm);
             var result = await newSearch.Run();
             return Json(result);
         }
