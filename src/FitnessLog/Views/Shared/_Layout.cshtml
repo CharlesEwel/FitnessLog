@@ -39,6 +39,7 @@
                     data: $(this).serialize(),
                     success: function (result) {
                         console.log(result)
+                        $(".results").html(result);
                     }
                 });
             });
