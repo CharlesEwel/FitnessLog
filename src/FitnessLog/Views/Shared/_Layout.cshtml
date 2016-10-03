@@ -39,8 +39,10 @@
                     data: $(this).serialize(),
                     success: function (result) {
                         $(".results").empty();
-                        var re = /\(.+\)/
-                        var resultArray = result.split(re)
+                        var re = /\(.+\)/;
+                        var trimmedString = result.substr(8);
+                        var resultArray = trimmedString.split(re);
+                        resultArray.pop();
                         resultArray.forEach(function (entry) {
                             $(".results").append("<li>"+entry+"</li>");
                         });
