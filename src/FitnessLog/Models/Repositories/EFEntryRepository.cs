@@ -17,7 +17,12 @@ namespace FitnessLog.Models.Repositories
 
         public IQueryable<Exercise> Exercises
         { get { return db.Exercises; } }
-
+        public EntryExerciseJoin Save(EntryExerciseJoin entryExerciseJoin)
+        {
+            db.EntryExercisJoins.Add(entryExerciseJoin);
+            db.SaveChanges();
+            return entryExerciseJoin;
+        }
         public Entry Save(Entry entry)
         {
             db.Log.Add(entry);

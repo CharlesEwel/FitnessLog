@@ -11,6 +11,8 @@ namespace FitnessLog.Models.Repositories
         IQueryable<ApplicationUser> Users { get; }
 
         IQueryable<Exercise> Exercises { get; }
+        IQueryable<EntryExerciseJoin> EntryExerciseJoins { get; }
+        EntryExerciseJoin Save(EntryExerciseJoin entryExerciseJoin);
         Entry Save(Entry entry);
         Entry Edit(Entry entry);
         void Remove(Entry entry);

@@ -11,6 +11,7 @@ namespace FitnessLog.Models
     {
         public DbSet<Entry> Log { get; set; }
         public DbSet<Exercise> Exercises { get; set; }
+        public DbSet<EntryExerciseJoin> EntryExerciseJoins { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

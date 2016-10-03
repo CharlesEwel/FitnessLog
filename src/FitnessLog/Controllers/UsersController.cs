@@ -126,6 +126,7 @@ namespace FitnessLog.Controllers
         {
             var entryId = entryRepo.Log.LastOrDefault().EntryId+1;
             EntryExerciseJoin newJoin = new EntryExerciseJoin { EntryId=entryId, ExerciseId = exerciseId, Sets = sets, Reps = reps, Weight = weight };
+            entryRepo.Save(newJoin);
             return Json(newJoin);
         }
         [HttpPost]
