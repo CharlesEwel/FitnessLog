@@ -57,7 +57,8 @@
                     dataType: 'json',
                     data: $(this).serialize(),
                     success: function (result) {
-                        console.log(result)
+                        var exerciseName = $("[value=" + result.exerciseId + "]").contents()[0].data;
+                        $(".exercises").append("<li>" + exerciseName + ": " + result.sets + "x" + result.reps + "x"  +result.weight + "</li>")
                     }
                 });
             });
