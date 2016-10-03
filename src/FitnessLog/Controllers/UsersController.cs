@@ -118,7 +118,15 @@ namespace FitnessLog.Controllers
         public IActionResult CreateEntry(string id)
         {
             ViewBag.UserId = id;
+            ViewBag.Exercises = entryRepo.Exercises;
             return View();
+        }
+        [HttpPost]
+        public IActionResult AddExercise(int exerciseId, int sets, int reps, int weight)
+        {
+            var entryId = entryRepo.Log.LastOrDefault().EntryId+1;
+            EntryExerciseJoin newJoin = new EntryExerciseJoin { EntryId=entryId, ExerciseId = exerciseId, Sets = sets, Reps = reps, Weight = weight };
+            return Json(newJoin);
         }
         [HttpPost]
         public IActionResult CreateEntry(Entry entry)

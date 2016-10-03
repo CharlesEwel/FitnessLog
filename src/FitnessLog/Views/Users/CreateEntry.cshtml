@@ -13,4 +13,19 @@
     @Html.TextBoxFor(model => model.Description)
     <input type="submit" value="Publish" />
 }
+<form action="AddExercise" class="add-exercise">
+    <select name="exerciseId">
+        @foreach(var exercise in ViewBag.Exercises)
+        {
+            <option value=@exercise.ExerciseId>@exercise.Name</option>
+        }
+    </select>
+    <p>Sets</p>
+    <input type="number" name="sets">
+    <p>Reps</p>
+    <input type="number" name="reps">
+    <p>Weight</p>
+    <input type="number" name="weights"> </br>
+    <button type="submit">Add Exercise</button>
+</form>
 <p>@Html.ActionLink("Back to Log", "Log", new { id = ViewBag.UserId })</p>

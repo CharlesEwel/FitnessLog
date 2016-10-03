@@ -49,6 +49,18 @@
                     }
                 });
             });
+            $('.add-exercise').submit(function (event) {
+                event.preventDefault();
+                $.ajax({
+                    url: '@Url.Action("AddExercise", "Users")',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: $(this).serialize(),
+                    success: function (result) {
+                        console.log(result)
+                    }
+                });
+            });
         });
     </script>
 </head>

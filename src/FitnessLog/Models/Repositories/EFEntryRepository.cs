@@ -15,6 +15,9 @@ namespace FitnessLog.Models.Repositories
         public IQueryable<ApplicationUser> Users
         { get { return db.Users; } }
 
+        public IQueryable<Exercise> Exercises
+        { get { return db.Exercises; } }
+
         public Entry Save(Entry entry)
         {
             db.Log.Add(entry);

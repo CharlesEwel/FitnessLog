@@ -9,6 +9,8 @@ namespace FitnessLog.Models.Repositories
     {
         IQueryable<Entry> Log { get; }
         IQueryable<ApplicationUser> Users { get; }
+
+        IQueryable<Exercise> Exercises { get; }
         Entry Save(Entry entry);
         Entry Edit(Entry entry);
         void Remove(Entry entry);

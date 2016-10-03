@@ -10,6 +10,7 @@ namespace FitnessLog.Models
     public class FitnessLogDbContext: IdentityDbContext<ApplicationUser>
     {
         public DbSet<Entry> Log { get; set; }
+        public DbSet<Exercise> Exercises { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
