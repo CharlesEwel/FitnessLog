@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Account Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model FitnessLog.Models.ApplicationUser
+<h2>@Html.DisplayFor(model => model.UserName)</h2>
+<ul>
+    <li>@Html.DisplayNameFor(model => model.Gender): @Html.DisplayFor(model => model.Gender)</li>
+    <li>@Html.DisplayNameFor(model => model.Age): @Html.DisplayFor(model => model.Age)</li>
+    <li>@Html.DisplayNameFor(model => model.Height): @Html.DisplayFor(model => model.Height)</li>
+    <li>@Html.DisplayNameFor(model => model.Weight): @Html.DisplayFor(model => model.Weight)</li>
+</ul>
+
+<h4>Suggested Logs:</h4>
+<ul class="suggested-logs"></ul>
+<form class="find-logs">
+    <input type="hidden" name="id" value=@Model.Id />
+    <input type="hidden" name="gender" value=@Model.Gender/>
+    <input type="hidden" name="age" value=@Model.Age />
+    <input type="hidden" name="height" value=@Model.Height />
+    <input type="hidden" name="weight" value=@Model.Weight />
+    <button type="submit">Find!</button>
+</form>
+
+<h4>Suggested YouTube Videos:</h4>
+<ul class="suggested-videos"></ul>
+<form class="find-videos">
+    <button type="submit">Find!</button>
+</form>
+
+<p>@Html.ActionLink("Back to Users", "Index")</p>
+

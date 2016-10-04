@@ -109,6 +109,11 @@ namespace FitnessLog.Controllers
             var thisUser = entryRepo.Users.FirstOrDefault(users => users.Id == id);
             return View(thisUser);
         }
+        public async Task<IActionResult> Profile(string id)
+        {
+            var thisUser = await _userManager.FindByNameAsync(User.Identity.Name);
+            return View(thisUser);
+        }
         public IActionResult Log(string id)
         {
             ViewBag.Exercises = entryRepo.Exercises.ToList();

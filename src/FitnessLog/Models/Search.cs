@@ -77,7 +77,7 @@ namespace FitnessLog.Models
             });
 
             var searchListRequest = youtubeService.Search.List("snippet");
-            searchListRequest.Q = "fitness " + searchTerm;
+            searchListRequest.Q = "fitness " +  searchTerm;
             searchListRequest.MaxResults = 10;
 
             // Call the search.list method to retrieve results matching the specified query term.
