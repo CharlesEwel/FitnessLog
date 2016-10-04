@@ -17,7 +17,6 @@ namespace FitnessLog.Controllers
         private IEntryRepository entryRepo;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
-        
         public UsersController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IEntryRepository thisRepo = null)
         {
             _userManager = userManager;
@@ -112,29 +111,35 @@ namespace FitnessLog.Controllers
         }
         public IActionResult Log(string id)
         {
-            var thisUser = entryRepo.Users.Include(user => user.Log).FirstOrDefault(users => users.Id == id);
+            ViewBag.Exercises = entryRepo.Exercises.ToList();
+            var thisUser = entryRepo.Users.Include(user => user.Log).ThenInclude(log => log.EntryExerciseJoins).FirstOrDefault(users => users.Id == id);
             return View(thisUser);
         }
         public IActionResult CreateEntry(string id)
         {
             ViewBag.UserId = id;
-            ViewBag.Exercises = entryRepo.Exercises;
             return View();
-        }
-        [HttpPost]
-        public IActionResult AddExercise(int exerciseId, int sets, int reps, int weight)
-        {
-            var entryId = entryRepo.Log.LastOrDefault().EntryId+1;
-            EntryExerciseJoin newJoin = new EntryExerciseJoin { EntryId=entryId, ExerciseId = exerciseId, Sets = sets, Reps = reps, Weight = weight };
-            entryRepo.Save(newJoin);
-            return Json(newJoin);
         }
         [HttpPost]
         public IActionResult CreateEntry(Entry entry)
         {
             entryRepo.Save(entry);
-            return RedirectToAction("Log", new { id = entry.UserId });
+            return RedirectToAction("AddExercise", new { id = entry.EntryId });
         }
+        public IActionResult AddExercise(int id)
+        {
+            ViewBag.Exercises = entryRepo.Exercises;
+            ViewBag.EntryId = id;
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddExercise(int entryId, int exerciseId, int sets, int reps, int weight)
+        {
+            EntryExerciseJoin newJoin = new EntryExerciseJoin { EntryId = entryId, ExerciseId = exerciseId, Sets = sets, Reps = reps, Weight = weight };
+            entryRepo.Save(newJoin);
+            return Json(newJoin);
+        }
+        
         [HttpPost]
         public async Task<IActionResult> Search(string searchQuery)
         {

@@ -8,7 +8,17 @@
 <ul>
     @foreach (var entry in Model.Log)
     {
-        <li>@Html.DisplayFor(model => entry.Date): @Html.DisplayFor(model => entry.Description) </li>
+        <li>
+            @Html.DisplayFor(model => entry.Date): @Html.DisplayFor(model => entry.Description) 
+            <ul>
+                @foreach (var join in entry.EntryExerciseJoins)
+                {
+                    <li>
+                        @ViewBag.Exercises[join.ExerciseId-1].Name: @join.Sets x @join.Reps x @join.Weight
+                    </li>
+                }
+            </ul>
+        </li>
     }
 </ul>
 

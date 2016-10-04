@@ -17,10 +17,10 @@ namespace FitnessLog.Tests
         EFEntryRepository db = new EFEntryRepository(new TestDbContext());
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
-        //public void Teardown()
-        //{
-        //    db.DeleteAll();
-        //}
+        public void Teardown()
+        {
+            db.DeleteAll();
+        }
         [Fact]
         public void GetAgeWeightandHeightTest()
         {
