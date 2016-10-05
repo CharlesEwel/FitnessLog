@@ -15,7 +15,6 @@
                     dataType: 'json',
                     data: $(this).serialize(),
                     success: function (result) {
-                        console.log(result)
                         if (result.email != "fail")
                         {
                             $(".logged-out").hide()
@@ -70,7 +69,8 @@
                     dataType: 'json',
                     data: $(this).serialize(),
                     success: function (result) {
-                        $(".suggested-logs").append("<li><a href='"+ +"'>"+ +"</a></li>")
+                        console.log(typeof result)
+                        console.log(result)
                     }
                 });
             });

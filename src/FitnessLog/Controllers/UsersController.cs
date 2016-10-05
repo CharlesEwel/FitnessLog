@@ -7,6 +7,7 @@ using FitnessLog.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using FitnessLog.Models.Repositories;
 using System;
+using System.Collections.Generic;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -152,6 +153,32 @@ namespace FitnessLog.Controllers
             Console.WriteLine("query:" + newSearch.searchTerm);
             var result = await newSearch.Run();
             return Json(result);
+        }
+        [HttpPost]
+        public IActionResult FindLogs(string userId, int gender, int age, int height, int weight)
+        {
+            var Userlist = entryRepo.Users.ToList();
+            Dictionary<ApplicationUser, double> scoredUsers = new Dictionary<ApplicationUser, double>{};
+            Console.WriteLine(userId);
+            foreach (ApplicationUser user in Userlist)
+            {
+                Console.WriteLine(userId);
+                double differenceScore = 0;
+                if(gender != user.Gender) { differenceScore += 30; };
+                differenceScore += Math.Pow(height - user.Height, 2);
+                differenceScore += Math.Pow((age - user.Age)/4, 2);
+                differenceScore += Math.Pow((weight - user.Weight)/10, 2);
+                if(userId != user.Id) { scoredUsers.Add(user, differenceScore); }
+            }
+            Dictionary<ApplicationUser, double> orderedUserDict = scoredUsers.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+            List<ApplicationUser> orderedUsers = new List<ApplicationUser> { };
+            int i = 0;
+            foreach(KeyValuePair<ApplicationUser, double> pair in orderedUserDict)
+            {
+                if (i < 5) { orderedUsers.Add(pair.Key); }
+                i++;
+            }
+            return Json(orderedUsers);
         }
     }
 }
