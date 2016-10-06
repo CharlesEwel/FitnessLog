@@ -21,6 +21,15 @@ For tests to work:
 
 * Run from Microsoft Visual Studio
 * Port will be assigned randomly, should pop up on its own.
+
+## Sample logs
+
+Charles.Ewel: F92gh67Z/
+Brosephus.Brotholomew:	BroLife4$
+Jennifer.Thompson: Bench315!
+Moar.Samples: Need3More&
+Oly.Sample: Oly4Life!
+
 ##Specs
 
 Allow Users to create a user profile (height, age, gender, weight, goals)

@@ -107,11 +107,13 @@ namespace FitnessLog.Controllers
         }
         public IActionResult Details(string id)
         {
+            ViewBag.GenderNames = new List<string> { "Male", "Female", "Non-Binary", "No Answer" };
             var thisUser = entryRepo.Users.FirstOrDefault(users => users.Id == id);
             return View(thisUser);
         }
         public async Task<IActionResult> Profile(string id)
         {
+            ViewBag.GenderNames = new List<string> { "Male", "Female", "Non-Binary", "No Answer" };
             var thisUser = await _userManager.FindByNameAsync(User.Identity.Name);
             return View(thisUser);
         }
@@ -150,7 +152,6 @@ namespace FitnessLog.Controllers
         public async Task<IActionResult> Search(string searchQuery)
         {
             Search newSearch = new Search(searchQuery);
-            Console.WriteLine("query:" + newSearch.searchTerm);
             var result = await newSearch.Run();
             return Json(result);
         }
@@ -159,10 +160,8 @@ namespace FitnessLog.Controllers
         {
             var Userlist = entryRepo.Users.ToList();
             Dictionary<ApplicationUser, double> scoredUsers = new Dictionary<ApplicationUser, double>{};
-            Console.WriteLine(userId);
             foreach (ApplicationUser user in Userlist)
             {
-                Console.WriteLine(userId);
                 double differenceScore = 0;
                 if(gender != user.Gender) { differenceScore += 30; };
                 differenceScore += Math.Pow(height - user.Height, 2);

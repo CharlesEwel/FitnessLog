@@ -6,7 +6,7 @@
 <h2>@Html.DisplayFor(model => model.UserName)</h2>
 
 <ul>
-    <li>@Html.DisplayNameFor(model => model.Gender): @Html.DisplayFor(model => model.Gender)</li>
+    <li>@Html.DisplayNameFor(model => model.Gender): @ViewBag.GenderNames[Model.Gender]</li>
     <li>@Html.DisplayNameFor(model => model.Age): @Html.DisplayFor(model => model.Age)</li>
     <li>@Html.DisplayNameFor(model => model.Height): @Html.DisplayFor(model => model.Height)</li>
     <li>@Html.DisplayNameFor(model => model.Weight): @Html.DisplayFor(model => model.Weight)</li>

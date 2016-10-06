@@ -71,6 +71,9 @@
                     success: function (result) {
                         console.log(typeof result)
                         console.log(result)
+                        result.forEach(function (user) {
+                            $(".suggested-logs").append("<li><a href='Log/"+ user.id +"'>"+user.userName+"</a></li>")
+                        })
                     }
                 });
             });
