@@ -10,21 +10,30 @@
     <li>@Html.DisplayNameFor(model => model.Height): @Html.DisplayFor(model => model.Height)</li>
     <li>@Html.DisplayNameFor(model => model.Weight): @Html.DisplayFor(model => model.Weight)</li>
 </ul>
-
+<h2>User Exercise Frequency Profile:</h2>
+<ul>
+    @foreach (KeyValuePair<FitnessLog.Models.Exercise, double> pair in ViewBag.UserFrequencies)
+    {
+        if (pair.Value != 0)
+        {
+            <li>@pair.Key.Name: @pair.Value%</li>
+        }
+    }
+</ul>
+<div class="more-fewer" style="display: none">
+    <p>Do More of These: <span class="more"></span></p>
+    <p>Do Fewer of These: <span class="fewer"></span></p>
+</div>
 <h4>Suggested Logs:</h4>
 <ol class="suggested-logs"></ol>
+<h4>Suggested YouTube Videos:</h4>
+<ol class="suggested-videos"></ol>
 <form class="find-logs">
     <input type="hidden" name="userId" value=@Model.Id />
     <input type="hidden" name="gender" value=@Model.Gender/>
     <input type="hidden" name="age" value=@Model.Age />
     <input type="hidden" name="height" value=@Model.Height />
     <input type="hidden" name="weight" value=@Model.Weight />
-    <button type="submit">Find!</button>
-</form>
-
-<h4>Suggested YouTube Videos:</h4>
-<ol class="suggested-videos"></ol>
-<form class="find-videos">
     <button type="submit">Find!</button>
 </form>
 

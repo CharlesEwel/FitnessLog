@@ -220,6 +220,8 @@ C:\Users\epicodus\Desktop\FitnessLog\src\FitnessLog\Migrations\20160923164326_Fi
 C:\Users\epicodus\Desktop\FitnessLog\src\FitnessLog\Migrations\20160923164326_FixLog.Designer.cs
 C:\Users\epicodus\Desktop\FitnessLog\src\FitnessLog\Migrations\20161004164349_MoreStuff.cs
 C:\Users\epicodus\Desktop\FitnessLog\src\FitnessLog\Migrations\20161004164349_MoreStuff.Designer.cs
+C:\Users\epicodus\Desktop\FitnessLog\src\FitnessLog\Migrations\20161006210216_jsonignore.cs
+C:\Users\epicodus\Desktop\FitnessLog\src\FitnessLog\Migrations\20161006210216_jsonignore.Designer.cs
 C:\Users\epicodus\Desktop\FitnessLog\src\FitnessLog\Migrations\FitnessLogDbContextModelSnapshot.cs
 C:\Users\epicodus\Desktop\FitnessLog\src\FitnessLog\Models\ApplicationUser.cs
 C:\Users\epicodus\Desktop\FitnessLog\src\FitnessLog\Models\Entry.cs

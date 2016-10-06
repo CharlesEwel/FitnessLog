@@ -1,10 +1,11 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace FitnessLog.Models
 {
@@ -15,6 +16,7 @@ namespace FitnessLog.Models
         public int Height { get; set; }
         public int Gender { get; set; }
         public int Weight { get; set; }
+        [JsonIgnore]
         public virtual ICollection<Entry> Log { get; set; }
     };
 }

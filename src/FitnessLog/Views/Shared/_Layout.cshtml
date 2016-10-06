@@ -69,11 +69,34 @@
                     dataType: 'json',
                     data: $(this).serialize(),
                     success: function (result) {
+                        $(".suggested-logs").empty();
+                        $(".more-fewer").show();
+                        $(".more").html(result[result.length - 2].name)
+                        $(".fewer").html(result[result.length - 1].name)
                         console.log(typeof result)
                         console.log(result)
-                        result.forEach(function (user) {
-                            $(".suggested-logs").append("<li><a href='Log/"+ user.id +"'>"+user.userName+"</a></li>")
-                        })
+                        for (i = 0; i < result.length - 2; i++)
+                        {
+                            $(".suggested-logs").append("<li><a href='Log/" + result[i].id + "'>" + result[i].userName + "</a></li>")
+
+                        }
+                        var dataString = "fitness" + result[result.length - 2].name
+                        $.ajax({
+                            url: '@Url.Action("Search", "Users")',
+                            type: 'POST',
+                            dataType: 'json',
+                            data: { searchQuery: result[result.length - 2].name },
+                            success: function (result2) {
+                                $(".suggested-videos").empty();
+                                var re = /\(.+\)/;
+                                var trimmedString = result2.substr(8);
+                                var resultArray = trimmedString.split(re);
+                                resultArray.pop();
+                                resultArray.forEach(function (entry) {
+                                    $(".suggested-videos").append("<li>" + entry + "</li>");
+                                });
+                            }
+                        });
                     }
                 });
             });

@@ -115,6 +115,26 @@ namespace FitnessLog.Controllers
         {
             ViewBag.GenderNames = new List<string> { "Male", "Female", "Non-Binary", "No Answer" };
             var thisUser = await _userManager.FindByNameAsync(User.Identity.Name);
+            var userInfo = entryRepo.Users.Include(user => user.Log).ThenInclude(log => log.EntryExerciseJoins).FirstOrDefault(users => users.Id == thisUser.Id);
+            List<Exercise> Exercises = entryRepo.Exercises.ToList();
+            ViewBag.More = Exercises[0];
+            ViewBag.Fewer = Exercises[12];
+            Dictionary<Exercise, double> UserExerciseFrequencyArray = Exercises.ToDictionary(x => x, x => 0.0);
+            int totalExercises = 0;
+            foreach(var entry in userInfo.Log)
+            {
+                foreach(var join in entry.EntryExerciseJoins)
+                {
+                    UserExerciseFrequencyArray[join.Exercise] += 1;
+                    totalExercises += 1;
+                }
+            }
+            Dictionary<Exercise, double> normalizedFrequencies = new Dictionary<Exercise, double> { };
+            foreach(KeyValuePair<Exercise, double> pair in UserExerciseFrequencyArray)
+            {
+                normalizedFrequencies.Add(pair.Key, 100*(pair.Value/totalExercises));
+            }
+            ViewBag.UserFrequencies = normalizedFrequencies;
             return View(thisUser);
         }
         public IActionResult Log(string id)
@@ -158,8 +178,25 @@ namespace FitnessLog.Controllers
         [HttpPost]
         public IActionResult FindLogs(string userId, int gender, int age, int height, int weight)
         {
-            var Userlist = entryRepo.Users.ToList();
+            var Userlist = entryRepo.Users.Include(user => user.Log).ThenInclude(log => log.EntryExerciseJoins).ToList();
             Dictionary<ApplicationUser, double> scoredUsers = new Dictionary<ApplicationUser, double>{};
+            ApplicationUser userInfo = entryRepo.Users.Include(user => user.Log).ThenInclude(log => log.EntryExerciseJoins).FirstOrDefault(users => users.Id == userId);
+            List<Exercise> Exercises = entryRepo.Exercises.ToList();
+            Dictionary<Exercise, double> UserExerciseFrequencyArray = Exercises.ToDictionary(x => x, x => 0.0);
+            int totalExercises = 0;
+            foreach (var entry in userInfo.Log)
+            {
+                foreach (var join in entry.EntryExerciseJoins)
+                {
+                    UserExerciseFrequencyArray[join.Exercise] += 1;
+                    totalExercises += 1;
+                }
+            }
+            Dictionary<Exercise, double> normalizedFrequencies = new Dictionary<Exercise, double> { };
+            foreach (KeyValuePair<Exercise, double> pair in UserExerciseFrequencyArray)
+            {
+                normalizedFrequencies.Add(pair.Key, 100 * (pair.Value / totalExercises));
+            }
             foreach (ApplicationUser user in Userlist)
             {
                 double differenceScore = 0;
@@ -170,13 +207,48 @@ namespace FitnessLog.Controllers
                 if(userId != user.Id) { scoredUsers.Add(user, differenceScore); }
             }
             Dictionary<ApplicationUser, double> orderedUserDict = scoredUsers.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
-            List<ApplicationUser> orderedUsers = new List<ApplicationUser> { };
+            List<Object> orderedUsers = new List<Object> { };
             int i = 0;
-            foreach(KeyValuePair<ApplicationUser, double> pair in orderedUserDict)
+            Exercise DoMoreOfThese = Exercises[0];
+            Exercise DoFewerOfThese = Exercises[1];
+            double biggestFrequencyDeficit = 0;
+            double biggestFrequencySurplus = 0;
+            foreach (KeyValuePair<ApplicationUser, double> pair in orderedUserDict)
             {
-                if (i < 5) { orderedUsers.Add(pair.Key); }
+                if (i < 3)
+                {
+                    Dictionary<Exercise, double> topUserExerciseFrequencyArray = Exercises.ToDictionary(x => x, x => 0.0);
+                    int topTotalExercises = 0;
+                    foreach (Entry entry in pair.Key.Log)
+                    { 
+                        foreach (EntryExerciseJoin join in entry.EntryExerciseJoins)
+                        {
+                            topUserExerciseFrequencyArray[join.Exercise] += 1;
+                            topTotalExercises += 1;
+                        }
+                    }
+                    Dictionary<Exercise, double> topNormalizedFrequencies = new Dictionary<Exercise, double> { };
+                    foreach (KeyValuePair<Exercise, double> topPair in topUserExerciseFrequencyArray)
+                    {
+                        topNormalizedFrequencies.Add(topPair.Key, 100 * (topPair.Value / topTotalExercises));
+                        double frequencyGap = normalizedFrequencies[topPair.Key] - topNormalizedFrequencies[topPair.Key];
+                        if (frequencyGap > biggestFrequencySurplus)
+                        {
+                            biggestFrequencySurplus = frequencyGap;
+                            DoFewerOfThese = topPair.Key;
+                        }
+                        if (frequencyGap < biggestFrequencyDeficit)
+                        {
+                            biggestFrequencyDeficit = frequencyGap;
+                            DoMoreOfThese = topPair.Key;
+                        }
+                    }
+                    orderedUsers.Add(pair.Key);
+                }
                 i++;
             }
+            orderedUsers.Add(DoMoreOfThese);
+            orderedUsers.Add(DoFewerOfThese);
             return Json(orderedUsers);
         }
     }
